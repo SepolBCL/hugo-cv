@@ -306,6 +306,60 @@
         border-radius: var(--radius-xl);
       }
 
+      .hero-marquee {
+        margin-top: 24px;
+        padding: 14px 18px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+      }
+
+      .hero-marquee-track {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: max-content;
+        animation: heroMarquee 26s linear infinite;
+      }
+
+      .hero-marquee:hover .hero-marquee-track {
+        animation-play-state: paused;
+      }
+
+      .hero-skill-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: #dbeafe;
+        font-size: 0.84rem;
+        white-space: nowrap;
+      }
+
+      .hero-skill-chip i {
+        color: var(--cyan);
+        font-size: 0.95rem;
+      }
+
+      .hero-skill-chip .token-mark {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(103, 232, 249, 0.12);
+        border: 1px solid rgba(103, 232, 249, 0.16);
+        color: #dffcff;
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
       .hero-summary p {
         margin: 0;
         color: #e2e8f0;
@@ -1009,6 +1063,15 @@
         }
       }
 
+      @keyframes heroMarquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
       @media (max-width: 1100px) {
         .hero,
         .education-grid,
@@ -1086,6 +1149,10 @@
         .hero-actions {
           grid-template-columns: 1fr;
         }
+
+        .hero-marquee-track {
+          animation-duration: 34s;
+        }
       }
     </style>
   </head>
@@ -1119,17 +1186,45 @@
     <main class="shell">
       <section class="hero reveal" id="hero">
         <div>
-          <p class="eyebrow" data-i18n="heroEyebrow">Perfil Profissional</p>
           <h2 class="hero-title">HUGO LOPES</h2>
           <div class="hero-role">
             <span id="typewriter"></span>
             <span class="cursor" aria-hidden="true"></span>
           </div>
 
-          <div class="hero-tags">
-            <span class="tag"><i class="fa-solid fa-location-dot"></i> Barcelos, Portugal</span>
-            <span class="tag"><i class="fa-solid fa-phone"></i> +351 963 622 418</span>
-            <span class="tag"><i class="fa-solid fa-envelope"></i> hugodecode@gmail.com</span>
+          <div class="hero-marquee glass" aria-label="Competências técnicas principais">
+            <div class="hero-marquee-track">
+              <span class="hero-skill-chip"><strong class="token-mark">C</strong> C</span>
+              <span class="hero-skill-chip"><strong class="token-mark">C#</strong> C#</span>
+              <span class="hero-skill-chip"><strong class="token-mark">C++</strong> C++</span>
+              <span class="hero-skill-chip"><i class="devicon-python-plain"></i> Python</span>
+              <span class="hero-skill-chip"><i class="devicon-kotlin-plain"></i> Kotlin</span>
+              <span class="hero-skill-chip"><i class="devicon-linux-plain"></i> Linux</span>
+              <span class="hero-skill-chip"><i class="devicon-windows11-original"></i> Windows</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-network-wired"></i> TCP/IP</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-globe"></i> DNS</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-database"></i> SQL Server</span>
+              <span class="hero-skill-chip"><i class="devicon-mysql-original"></i> MySQL</span>
+              <span class="hero-skill-chip"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-chart-column"></i> Power BI</span>
+              <span class="hero-skill-chip"><i class="devicon-github-original"></i> GitHub</span>
+              <span class="hero-skill-chip"><i class="devicon-visualstudio-plain"></i> Visual Studio</span>
+              <span class="hero-skill-chip"><strong class="token-mark">C</strong> C</span>
+              <span class="hero-skill-chip"><strong class="token-mark">C#</strong> C#</span>
+              <span class="hero-skill-chip"><strong class="token-mark">C++</strong> C++</span>
+              <span class="hero-skill-chip"><i class="devicon-python-plain"></i> Python</span>
+              <span class="hero-skill-chip"><i class="devicon-kotlin-plain"></i> Kotlin</span>
+              <span class="hero-skill-chip"><i class="devicon-linux-plain"></i> Linux</span>
+              <span class="hero-skill-chip"><i class="devicon-windows11-original"></i> Windows</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-network-wired"></i> TCP/IP</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-globe"></i> DNS</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-database"></i> SQL Server</span>
+              <span class="hero-skill-chip"><i class="devicon-mysql-original"></i> MySQL</span>
+              <span class="hero-skill-chip"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+              <span class="hero-skill-chip"><i class="fa-solid fa-chart-column"></i> Power BI</span>
+              <span class="hero-skill-chip"><i class="devicon-github-original"></i> GitHub</span>
+              <span class="hero-skill-chip"><i class="devicon-visualstudio-plain"></i> Visual Studio</span>
+            </div>
           </div>
 
           <div class="hero-summary glass">

@@ -1,0 +1,1813 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hugo Filipe Ferreira Lopes | Currículo Digital</title>
+    <meta
+      name="description"
+      content="Currículo digital interativo de Hugo Filipe Ferreira Lopes, com experiência em consultoria técnica, sistemas de informação, engenharia informática e transformação digital."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <style>
+      :root {
+        --bg: #050816;
+        --bg-soft: rgba(7, 13, 28, 0.72);
+        --panel: rgba(8, 15, 30, 0.54);
+        --panel-strong: rgba(9, 17, 36, 0.74);
+        --border: rgba(125, 211, 252, 0.16);
+        --border-strong: rgba(125, 211, 252, 0.28);
+        --text: #f8fafc;
+        --muted: #cbd5e1;
+        --soft: #8ea3ba;
+        --cyan: #67e8f9;
+        --cyan-strong: #22d3ee;
+        --blue: #60a5fa;
+        --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --nav-height: 76px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        font-family: 'Inter', sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(34, 211, 238, 0.08), transparent 22%),
+          radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.1), transparent 18%),
+          linear-gradient(180deg, #030712 0%, #071120 100%);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      .background-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .background-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(180deg, rgba(3, 7, 18, 0.38) 0%, rgba(3, 7, 18, 0.75) 42%, rgba(3, 7, 18, 0.94) 100%),
+          radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 28%);
+        pointer-events: none;
+      }
+
+      .shell {
+        position: relative;
+        width: min(1380px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        backdrop-filter: blur(20px);
+        background: rgba(3, 7, 18, 0.5);
+        border-bottom: 1px solid rgba(125, 211, 252, 0.08);
+      }
+
+      .topbar-inner {
+        min-height: var(--nav-height);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 16px 0;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+      }
+
+      .brand span {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.34em;
+        color: var(--cyan);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .lang-btn {
+        border: 0;
+        border-radius: 999px;
+        padding: 9px 12px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        transition: 180ms ease;
+      }
+
+      .lang-btn:hover,
+      .lang-btn.is-active {
+        background: rgba(103, 232, 249, 0.12);
+        color: #e6fbff;
+      }
+
+      .nav a {
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        color: var(--muted);
+        font-size: 0.92rem;
+        transition: 180ms ease;
+      }
+
+      .nav a:hover {
+        color: var(--text);
+        border-color: rgba(103, 232, 249, 0.34);
+        box-shadow: 0 0 0 1px rgba(103, 232, 249, 0.12) inset;
+      }
+
+      .glass {
+        background: linear-gradient(180deg, rgba(8, 15, 30, 0.62), rgba(8, 15, 30, 0.45));
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(22px);
+      }
+
+      .hero {
+        min-height: calc(100vh - var(--nav-height));
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        align-items: center;
+        gap: 44px;
+        padding: 52px 0 72px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.36em;
+        color: var(--cyan);
+      }
+
+      .hero-title {
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(2.7rem, 8vw, 5.4rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-role {
+        margin-top: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #d6faff;
+        font-size: clamp(1rem, 2.5vw, 1.35rem);
+        font-weight: 600;
+      }
+
+      .cursor {
+        width: 2px;
+        height: 1.3em;
+        background: var(--cyan);
+        box-shadow: 0 0 18px rgba(34, 211, 238, 0.5);
+        animation: pulse 0.9s infinite;
+      }
+
+      .hero-tags,
+      .hero-actions,
+      .social-links,
+      .chip-grid,
+      .mini-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-tags {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      .tag,
+      .cta,
+      .social-link,
+      .micro-chip {
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 56px;
+        padding: 12px 16px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .hero-summary {
+        margin-top: 28px;
+        padding: 24px 24px 26px;
+        border-radius: var(--radius-xl);
+      }
+
+      .hero-summary p {
+        margin: 0;
+        color: #e2e8f0;
+        line-height: 1.9;
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 56px;
+        padding: 13px 20px;
+        font-weight: 600;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .cta.primary {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.18));
+        border-color: rgba(103, 232, 249, 0.34);
+        color: #dffcff;
+      }
+
+      .cta.secondary {
+        color: var(--muted);
+      }
+
+      .cta:hover,
+      .social-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(103, 232, 249, 0.36);
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 22px;
+      }
+
+      .portrait-panel {
+        padding: 24px;
+        border-radius: 34px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .portrait-panel::before {
+        content: '';
+        position: absolute;
+        inset: -30%;
+        background: radial-gradient(circle, rgba(34, 211, 238, 0.16), transparent 44%);
+        pointer-events: none;
+      }
+
+      .portrait-ring {
+        position: relative;
+        width: min(100%, 380px);
+        aspect-ratio: 1;
+        margin: 0 auto;
+        border-radius: 50%;
+        padding: 18px;
+        background: linear-gradient(135deg, rgba(34, 211, 238, 0.28), rgba(59, 130, 246, 0.1));
+        box-shadow:
+          0 0 0 1px rgba(103, 232, 249, 0.18),
+          0 0 55px rgba(34, 211, 238, 0.18);
+      }
+
+      .portrait-ring::after {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .portrait-ring img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .highlight-panel {
+        padding: 24px;
+        border-radius: var(--radius-xl);
+      }
+
+      .highlight-panel h3,
+      .section-card h3,
+      .timeline-card h3,
+      .subheading {
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .highlight-panel h3 {
+        font-size: 1.2rem;
+      }
+
+      .highlight-panel ul {
+        list-style: none;
+        margin: 18px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .highlight-panel li {
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      main {
+        padding-bottom: 64px;
+      }
+
+      .section {
+        padding: 56px 0 0;
+      }
+
+      .section-header {
+        max-width: 760px;
+        margin-bottom: 22px;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.02;
+      }
+
+      .section-header p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.98rem;
+      }
+
+      .timeline {
+        position: relative;
+        display: grid;
+        gap: 18px;
+        padding-left: 26px;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(34, 211, 238, 0.4), rgba(59, 130, 246, 0.12));
+      }
+
+      .timeline-card {
+        position: relative;
+        padding: 22px;
+        border-radius: var(--radius-xl);
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .timeline-card::before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 34px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--cyan) 0%, rgba(34, 211, 238, 0.22) 55%, transparent 70%);
+        box-shadow: 0 0 24px rgba(34, 211, 238, 0.48);
+      }
+
+      .timeline-card:hover,
+      .skill-card:hover,
+      .language-card:hover,
+      .contact-card:hover {
+        transform: translateY(-4px) rotateX(0.4deg);
+        border-color: var(--border-strong);
+        box-shadow:
+          0 22px 65px rgba(0, 0, 0, 0.36),
+          0 0 0 1px rgba(103, 232, 249, 0.08) inset;
+      }
+
+      .timeline-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .timeline-role {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .logo-box {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #d4f7ff;
+        box-shadow: 0 0 28px rgba(34, 211, 238, 0.08);
+      }
+
+      .logo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 8px;
+      }
+
+      .logo-box.logo-upca img {
+        object-fit: cover;
+        padding: 0;
+      }
+
+      .logo-box.logo-wave img,
+      .logo-box.logo-sleico img,
+      .logo-box.logo-ofp img,
+      .logo-box.logo-chalet img,
+      .logo-box.logo-ceramica img {
+        object-fit: contain;
+        padding: 7px;
+        background: #ffffff;
+      }
+
+      .timeline-meta h3 {
+        font-size: 1.28rem;
+        margin-bottom: 4px;
+      }
+
+      .timeline-meta p {
+        margin: 0;
+        color: #c8f8ff;
+        font-size: 0.98rem;
+      }
+
+      .timeline-period {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(103, 232, 249, 0.16);
+        color: var(--muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        background: rgba(255, 255, 255, 0.03);
+        white-space: nowrap;
+      }
+
+      .timeline-card .body-text {
+        margin: 18px 0 0;
+        line-height: 1.9;
+        color: var(--muted);
+      }
+
+      .education-grid,
+      .skills-layout,
+      .contact-grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      .education-grid {
+        grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+      }
+
+      .education-card,
+      .section-card,
+      .contact-card {
+        padding: 24px;
+        border-radius: var(--radius-xl);
+      }
+
+      .education-head {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .education-head .subheading {
+        font-size: 1.32rem;
+      }
+
+      .muted-line {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .micro-label {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--cyan);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+      }
+
+      .chip-grid {
+        margin-top: 16px;
+      }
+
+      .micro-chip {
+        padding: 10px 14px;
+        color: #e2e8f0;
+        font-size: 0.86rem;
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-main-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      .skill-card,
+      .language-card {
+        padding: 20px;
+        border-radius: 22px;
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .skill-card {
+        min-height: 188px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .skill-card-header,
+      .language-card-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .icon-box,
+      .language-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(103, 232, 249, 0.16);
+        background: rgba(103, 232, 249, 0.08);
+        color: #dffcff;
+        box-shadow: 0 0 24px rgba(34, 211, 238, 0.08);
+      }
+
+      .icon-box i {
+        font-size: 1.15rem;
+      }
+
+      .skill-card h3,
+      .language-card h3 {
+        font-size: 1.08rem;
+      }
+
+      .skill-card-header .muted-line {
+        margin: 6px 0 0;
+        font-size: 0.95rem;
+      }
+
+      .skill-tags {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .skill-tags span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        color: var(--muted);
+        font-size: 0.82rem;
+        min-height: 38px;
+        white-space: nowrap;
+      }
+
+      .soft-grid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .soft-card {
+        padding: 18px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+      }
+
+      .soft-card strong {
+        display: block;
+        font-size: 0.96rem;
+        color: #f8fafc;
+      }
+
+      .soft-card span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 0.84rem;
+      }
+
+      .skill-tags i {
+        color: var(--cyan);
+        font-size: 0.92rem;
+      }
+
+      .skill-tags .token-mark {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(103, 232, 249, 0.12);
+        border: 1px solid rgba(103, 232, 249, 0.16);
+        color: #dffcff;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .language-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .language-icon {
+        font-size: 1.45rem;
+        line-height: 1;
+      }
+
+      .lang-pt {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(34, 197, 94, 0.18));
+      }
+
+      .lang-fr {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(59, 130, 246, 0.16));
+      }
+
+      .lang-en {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.24), rgba(168, 85, 247, 0.15));
+      }
+
+      .language-meta p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .language-card {
+        min-height: 132px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .language-meta small {
+        display: inline-block;
+        margin-top: 4px;
+        color: var(--cyan);
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        font-size: 0.68rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr);
+      }
+
+      .contact-actions {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .social-links {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 56px;
+        padding: 12px 18px;
+        color: var(--muted);
+        transition: transform 180ms ease, border-color 180ms ease;
+      }
+
+      .contact-card {
+        display: grid;
+        gap: 16px;
+      }
+
+      .contact-card-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(148, 163, 184, 0.08);
+      }
+
+      .contact-card-item i {
+        width: 18px;
+        color: var(--cyan);
+      }
+
+      .footer-note {
+        margin: 26px 0 0;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.95rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.25;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .hero,
+        .education-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skill-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .language-list {
+          grid-template-columns: 1fr;
+        }
+
+        .soft-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-tags {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 20px, 1380px);
+        }
+
+        .hero {
+          gap: 28px;
+          padding-top: 34px;
+        }
+
+        .timeline {
+          padding-left: 18px;
+        }
+
+        .timeline::before {
+          left: 6px;
+        }
+
+        .timeline-card::before {
+          left: -19px;
+        }
+
+        .timeline-top {
+          flex-direction: column;
+        }
+
+        .timeline-role {
+          flex-direction: column;
+        }
+
+        .timeline-period {
+          white-space: normal;
+          width: fit-content;
+        }
+
+        .portrait-panel,
+        .highlight-panel,
+        .hero-summary,
+        .timeline-card,
+        .education-card,
+        .section-card,
+        .contact-card {
+          padding: 18px;
+        }
+
+        .contact-actions,
+        .social-links {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="background-canvas" id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="background-overlay"></div>
+
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <div class="brand">
+          <h1>HUGO LOPES</h1>
+          <span data-i18n="brandTag">Perfil Tecnológico</span>
+        </div>
+        <div class="topbar-actions">
+          <nav class="nav" aria-label="Navegação principal">
+            <a href="#hero" data-i18n="navHome">Início</a>
+            <a href="#experience" data-i18n="navExperience">Experiência</a>
+            <a href="#education" data-i18n="navEducation">Educação</a>
+            <a href="#skills" data-i18n="navSkills">Competências</a>
+            <a href="#contact" data-i18n="navContact">Contacto</a>
+          </nav>
+          <div class="lang-switcher" aria-label="Language switcher">
+            <button class="lang-btn is-active" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="fr">FR</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero reveal" id="hero">
+        <div>
+          <p class="eyebrow" data-i18n="heroEyebrow">Perfil Profissional</p>
+          <h2 class="hero-title">HUGO LOPES</h2>
+          <div class="hero-role">
+            <span id="typewriter"></span>
+            <span class="cursor" aria-hidden="true"></span>
+          </div>
+
+          <div class="hero-tags">
+            <span class="tag"><i class="fa-solid fa-location-dot"></i> Barcelos, Portugal</span>
+            <span class="tag"><i class="fa-solid fa-phone"></i> +351 963 622 418</span>
+            <span class="tag"><i class="fa-solid fa-envelope"></i> hugodecode@gmail.com</span>
+          </div>
+
+          <div class="hero-summary glass">
+            <p>
+              <span data-i18n="heroSummary">Licenciado com experiência na implementação de sistemas de informação e mobilidade empresarial. Background técnico sólido construído ao longo de mais de uma década em ambientes internacionais. Foco no rigor operacional e na transição digital das organizações.</span>
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="cta primary" href="#experience"><i class="fa-solid fa-briefcase"></i> <span data-i18n="heroCtaExperience">Explorar experiência</span></a>
+            <a class="cta secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="heroCtaContact">Entrar em contacto</span></a>
+          </div>
+
+          <div class="social-links">
+            <a class="social-link" href="https://www.linkedin.com/in/hugolopesbcl/" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-linkedin-in"></i> <span data-i18n="linkedinLabel">LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://github.com/SepolBCL" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-github"></i> <span data-i18n="githubLabel">GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="portrait-panel glass">
+            <div class="portrait-ring">
+              <img
+                src="./public/assets/profile/hugo-profile.jpg"
+                alt="Fotografia de Hugo Filipe Ferreira Lopes"
+                onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80';"
+              />
+            </div>
+          </div>
+
+          <div class="highlight-panel glass">
+            <h3 data-i18n="executiveTitle">Visão executiva</h3>
+            <ul>
+              <li data-i18n="executivePoint1">Experiência recente em consultoria técnica e sistemas de informação.</li>
+              <li data-i18n="executivePoint2">Percurso internacional consolidado entre Portugal e França.</li>
+              <li data-i18n="executivePoint3">Liderança operacional, disciplina de execução e forte capacidade de adaptação.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="experience">
+        <div class="section-header">
+          <p class="eyebrow" data-i18n="experienceEyebrow">Percurso profissional</p>
+          <h2 data-i18n="experienceTitle">Experiência profissional</h2>
+          <p data-i18n="experienceIntro">
+            Percurso desenvolvido em ambientes técnicos exigentes, com progressão para coordenação de equipas e experiência recente em consultoria de sistemas de informação.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card glass">
+            <div class="timeline-top">
+              <div class="timeline-role">
+                <div class="logo-box logo-wave">
+                  <img src="./public/assets/logos/wave-logo.png" alt="Logótipo Wave Solutions" style="background:#fff; padding:6px;" />
+                </div>
+                <div class="timeline-meta">
+                  <h3 data-i18n="exp1Role">Consultor</h3>
+                  <p data-i18n="exp1Company">Wave Solutions</p>
+                </div>
+              </div>
+              <div class="timeline-period">Jan 2026 - Jun 2026</div>
+            </div>
+            <p class="body-text" data-i18n="exp1Text">
+              Consultoria técnica em sistemas de informação, otimização de processos de negócio e fluxos de trabalho.
+            </p>
+          </article>
+
+          <article class="timeline-card glass">
+            <div class="timeline-top">
+              <div class="timeline-role">
+                <div class="logo-box logo-ofp">
+                  <img src="./public/assets/logos/ofp-logo.png" alt="Logótipo OFP Carpintaria" />
+                </div>
+                <div class="timeline-meta">
+                  <h3 data-i18n="exp2Role">Carpinteiro</h3>
+                  <p data-i18n="exp2Company">OFP Carpintaria</p>
+                </div>
+              </div>
+              <div class="timeline-period">Out 2020 - Jan 2026</div>
+            </div>
+            <p class="body-text" data-i18n="exp2Text">
+              Reintegração no mercado português com aplicação de forte competência técnica.
+            </p>
+          </article>
+
+          <article class="timeline-card glass">
+            <div class="timeline-top">
+              <div class="timeline-role">
+                <div class="logo-box logo-sleico">
+                  <img src="./public/assets/logos/sleico-logo.png" alt="Logótipo SLEICO" />
+                </div>
+                <div class="timeline-meta">
+                  <h3 data-i18n="exp3Role">Construtor de Estruturas Metálicas</h3>
+                  <p data-i18n="exp3Company">SLEICO, SAS, França</p>
+                </div>
+              </div>
+              <div class="timeline-period">Nov 2010 - Out 2020</div>
+            </div>
+            <p class="body-text" data-i18n="exp3Text">
+              Evolução para líder de equipa com coordenação de projetos técnicos complexos.
+            </p>
+          </article>
+
+          <article class="timeline-card glass">
+            <div class="timeline-top">
+              <div class="timeline-role">
+                <div class="logo-box logo-chalet">
+                  <img src="./public/assets/logos/chalet-logo.png" alt="Logótipo Chalet Mounier" />
+                </div>
+                <div class="timeline-meta">
+                  <h3 data-i18n="exp4Role">Ajudante de Cozinha</h3>
+                  <p data-i18n="exp4Company">Hotel Chalet Mounier, França</p>
+                </div>
+              </div>
+              <div class="timeline-period">Jun 2009 - Ago 2010</div>
+            </div>
+            <p class="body-text" data-i18n="exp4Text">
+              Adaptação a um novo ambiente profissional em contexto internacional e exigente.
+            </p>
+          </article>
+
+          <article class="timeline-card glass">
+            <div class="timeline-top">
+              <div class="timeline-role">
+                <div class="logo-box logo-ceramica">
+                  <img src="./public/assets/logos/ceramica-logo.png" alt="Logótipo Cerâmica Lopes" />
+                </div>
+                <div class="timeline-meta">
+                  <h3 data-i18n="exp5Role">Gerente</h3>
+                  <p data-i18n="exp5Company">Cerâmica Laurindo Lopes</p>
+                </div>
+              </div>
+              <div class="timeline-period">2003 - 2008</div>
+            </div>
+            <p class="body-text" data-i18n="exp5Text">
+              Gestão de operações diárias e equipas.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="education">
+        <div class="section-header">
+          <p class="eyebrow" data-i18n="educationEyebrow">Educação</p>
+          <h2 data-i18n="educationTitle">Formação académica</h2>
+          <p data-i18n="educationIntro">
+            Licenciatura concluída em Engenharia de Sistemas Informáticos, com base sólida em software, sistemas, redes e dados.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-card glass">
+            <div class="education-head">
+              <div class="logo-box logo-upca">
+                <img src="./public/assets/logos/upca-logo.png" alt="Logótipo UPCA" />
+              </div>
+              <div>
+                <span class="micro-label">2023 - 2026</span>
+                <h3 class="subheading" data-i18n="educationDegree">Licenciatura em Engenharia de Sistemas Informáticos</h3>
+                <p class="muted-line" data-i18n="educationSchool">Universidade Politécnica do Cávado e do Ave</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="education-card glass">
+            <span class="micro-label" data-i18n="studyAreasLabel">Áreas de estudo</span>
+            <div class="chip-grid">
+              <span class="micro-chip">Sistemas Operativos</span>
+              <span class="micro-chip">Arquitetura de Computadores</span>
+              <span class="micro-chip">Programação</span>
+              <span class="micro-chip">Redes</span>
+              <span class="micro-chip">Bases de Dados</span>
+              <span class="micro-chip">Administração de Sistemas</span>
+              <span class="micro-chip">Engenharia de Software</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="skills">
+        <div class="section-header">
+          <p class="eyebrow" data-i18n="skillsEyebrow">Perfil técnico</p>
+          <h2 data-i18n="skillsTitle">Competências-chave</h2>
+          <p data-i18n="skillsIntro">
+            Síntese das principais competências técnicas, linguísticas e interpessoais relevantes para funções em tecnologia e consultoria.
+          </p>
+        </div>
+
+        <div class="skills-layout">
+          <div class="skills-main-grid">
+            <article class="section-card glass">
+              <span class="micro-label" data-i18n="technicalSkillsLabel">Competências técnicas</span>
+              <div class="skill-grid">
+                <div class="skill-card glass">
+                  <div class="skill-card-header">
+                    <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                      <h3 data-i18n="skillsCard1Title">Programação</h3>
+                      <p class="muted-line" data-i18n="skillsCard1Text">Linguagens e lógica aplicada</p>
+                    </div>
+                  </div>
+                <div class="skill-tags">
+                  <span><strong class="token-mark">C</strong> C</span>
+                  <span><strong class="token-mark">C#</strong> C#</span>
+                  <span><strong class="token-mark">C++</strong> C++</span>
+                  <span><i class="devicon-python-plain"></i> Python</span>
+                  <span><i class="devicon-kotlin-plain"></i> Kotlin</span>
+                </div>
+              </div>
+
+                <div class="skill-card glass">
+                  <div class="skill-card-header">
+                    <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                    <div>
+                      <h3 data-i18n="skillsCard2Title">Sistemas e Redes</h3>
+                      <p class="muted-line" data-i18n="skillsCard2Text">Infraestrutura, conectividade e operação</p>
+                    </div>
+                  </div>
+                <div class="skill-tags">
+                  <span><i class="devicon-linux-plain"></i> Linux</span>
+                  <span><i class="devicon-windows11-original"></i> Windows</span>
+                  <span><i class="fa-solid fa-network-wired"></i> TCP/IP</span>
+                  <span><i class="fa-solid fa-globe"></i> DNS</span>
+                  <span><i class="fa-solid fa-shield-halved"></i> Firewalls</span>
+                </div>
+              </div>
+
+                <div class="skill-card glass">
+                  <div class="skill-card-header">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <div>
+                      <h3 data-i18n="skillsCard3Title">Bases de Dados</h3>
+                      <p class="muted-line" data-i18n="skillsCard3Text">Modelação e consulta de dados</p>
+                    </div>
+                  </div>
+                <div class="skill-tags">
+                  <span><i class="fa-solid fa-database"></i> SQL Server</span>
+                  <span><i class="devicon-mysql-original"></i> MySQL</span>
+                  <span><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+                </div>
+              </div>
+
+                <div class="skill-card glass">
+                  <div class="skill-card-header">
+                    <div class="icon-box"><i class="fa-solid fa-toolbox"></i></div>
+                    <div>
+                      <h3 data-i18n="skillsCard4Title">Ferramentas</h3>
+                      <p class="muted-line" data-i18n="skillsCard4Text">Produtividade, colaboração e análise</p>
+                    </div>
+                  </div>
+                <div class="skill-tags">
+                  <span><i class="fa-solid fa-chart-column"></i> Power BI</span>
+                  <span><i class="devicon-github-original"></i> GitHub</span>
+                  <span><i class="devicon-visualstudio-plain"></i> Visual Studio</span>
+                </div>
+              </div>
+              </div>
+            </article>
+
+            <article class="section-card glass">
+              <span class="micro-label" data-i18n="languagesLabel">Idiomas</span>
+              <div class="language-list">
+                <div class="language-card glass">
+                  <div class="language-card-header">
+                    <div class="language-icon lang-pt">🇵🇹</div>
+                    <div class="language-meta">
+                      <h3 data-i18n="langPt">Português</h3>
+                      <small data-i18n="langPtLevel">Nativo</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="language-card glass">
+                  <div class="language-card-header">
+                    <div class="language-icon lang-fr">🇫🇷</div>
+                    <div class="language-meta">
+                      <h3 data-i18n="langFr">Francês</h3>
+                      <small>C1</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="language-card glass">
+                  <div class="language-card-header">
+                    <div class="language-icon lang-en">🇬🇧</div>
+                    <div class="language-meta">
+                      <h3 data-i18n="langEn">Inglês</h3>
+                      <small>B1</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="section-card glass">
+              <span class="micro-label" data-i18n="softSkillsLabel">Competências interpessoais</span>
+              <div class="soft-grid">
+                <div class="soft-card">
+                  <strong data-i18n="soft1Title">Forte sentido de responsabilidade</strong>
+                  <span data-i18n="soft1Text">Compromisso com qualidade, fiabilidade e cumprimento de objetivos.</span>
+                </div>
+                <div class="soft-card">
+                  <strong data-i18n="soft2Title">Excelente organização e gestão do tempo</strong>
+                  <span data-i18n="soft2Text">Capacidade para estruturar prioridades e manter consistência na execução.</span>
+                </div>
+                <div class="soft-card">
+                  <strong data-i18n="soft3Title">Espírito de equipa e colaboração</strong>
+                  <span data-i18n="soft3Text">Facilidade em trabalhar com diferentes perfis e contribuir para resultados comuns.</span>
+                </div>
+                <div class="soft-card">
+                  <strong data-i18n="soft4Title">Motivação e orientação para resultados</strong>
+                  <span data-i18n="soft4Text">Foco em entrega, melhoria contínua e criação de valor concreto.</span>
+                </div>
+                <div class="soft-card">
+                  <strong data-i18n="soft5Title">Resiliência e capacidade de adaptação</strong>
+                  <span data-i18n="soft5Text">Boa resposta a contextos exigentes, mudança e novos desafios profissionais.</span>
+                </div>
+                <div class="soft-card">
+                  <strong data-i18n="soft6Title">Vontade de aprender e superar desafios</strong>
+                  <span data-i18n="soft6Text">Postura de evolução constante, com forte abertura à aprendizagem prática.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="contact">
+        <div class="section-header">
+          <p class="eyebrow" data-i18n="contactEyebrow">Contacto</p>
+          <h2 data-i18n="contactTitle">Disponível para oportunidades em tecnologia e consultoria técnica</h2>
+          <p data-i18n="contactIntro">
+            Perfil orientado para organizações que valorizem rigor operacional, maturidade profissional e evolução tecnológica consistente.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="section-card glass">
+            <div class="contact-actions">
+              <a class="cta primary" href="mailto:hugodecode@gmail.com"><i class="fa-solid fa-envelope"></i> hugodecode@gmail.com</a>
+              <a class="cta secondary" href="tel:+351963622418"><i class="fa-solid fa-phone"></i> +351 963 622 418</a>
+            </div>
+
+            <div class="social-links">
+              <a class="social-link" href="https://www.linkedin.com/in/hugolopesbcl/" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-linkedin"></i> www.linkedin.com/in/hugolopesbcl
+              </a>
+              <a class="social-link" href="https://github.com/SepolBCL" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-github"></i> github.com/SepolBCL
+              </a>
+            </div>
+          </article>
+
+          <article class="contact-card glass">
+            <div class="contact-card-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span data-i18n="contactLocation">Barcelos, Portugal</span>
+            </div>
+            <div class="contact-card-item">
+              <i class="fa-solid fa-user-tie"></i>
+              <span data-i18n="contactRole">Software Engineer &amp; Data Enthusiast | Consultant</span>
+            </div>
+            <div class="contact-card-item">
+              <i class="fa-solid fa-network-wired"></i>
+              <span data-i18n="contactAvailability">Disponível para sistemas de informação, software e transformação digital</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="footer-note" data-i18n="footerNote">Desenvolvido com dedicação e tecnologia.</p>
+      </section>
+    </main>
+
+    <script>
+      const canvas = document.getElementById('bg-canvas');
+      const ctx = canvas.getContext('2d');
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let mouse = { x: 0, y: 0, active: false };
+
+      function resizeCanvas() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * ratio;
+        canvas.height = height * ratio;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        createParticles();
+      }
+
+      function createParticles() {
+        const count = Math.max(60, Math.min(130, Math.floor((width * height) / 18000)));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: Math.random() * 2 + 1,
+          glow: Math.random() * 0.8 + 0.2,
+        }));
+      }
+
+      function drawGrid(time) {
+        const spacing = 44;
+        const offset = (time * 0.015) % spacing;
+        ctx.save();
+        ctx.strokeStyle = 'rgba(103, 232, 249, 0.06)';
+        ctx.lineWidth = 1;
+        for (let x = -spacing; x < width + spacing; x += spacing) {
+          ctx.beginPath();
+          ctx.moveTo(x + offset, 0);
+          ctx.lineTo(x + offset - 40, height);
+          ctx.stroke();
+        }
+        for (let y = -spacing; y < height + spacing; y += spacing) {
+          ctx.beginPath();
+          ctx.moveTo(0, y + offset * 0.35);
+          ctx.lineTo(width, y + offset * 0.35);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      function animate(time = 0) {
+        ctx.clearRect(0, 0, width, height);
+        drawGrid(time);
+
+        for (let i = 0; i < particles.length; i += 1) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < -40) p.x = width + 40;
+          if (p.x > width + 40) p.x = -40;
+          if (p.y < -40) p.y = height + 40;
+          if (p.y > height + 40) p.y = -40;
+
+          if (mouse.active) {
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const distance = Math.hypot(dx, dy);
+            if (distance < 140) {
+              p.x -= dx * 0.0025;
+              p.y -= dy * 0.0025;
+            }
+          }
+
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(103, 232, 249, ${0.45 + p.glow * 0.4})`;
+          ctx.shadowColor = 'rgba(34, 211, 238, 0.45)';
+          ctx.shadowBlur = 14;
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          for (let j = i + 1; j < particles.length; j += 1) {
+            const q = particles[j];
+            const dx = p.x - q.x;
+            const dy = p.y - q.y;
+            const distance = Math.hypot(dx, dy);
+            if (distance < 120) {
+              const alpha = (1 - distance / 120) * 0.22;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(96, 165, 250, ${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+      const translations = {
+        pt: {
+          brandTag: 'Perfil Tecnológico',
+          navHome: 'Início',
+          navExperience: 'Experiência',
+          navEducation: 'Educação',
+          navSkills: 'Competências',
+          navContact: 'Contacto',
+          heroEyebrow: 'Perfil Profissional',
+          heroRole: 'Software Engineer & Data Enthusiast | Consultant',
+          heroSummary:
+            'Licenciado com experiência na implementação de sistemas de informação e mobilidade empresarial. Background técnico sólido construído ao longo de mais de uma década em ambientes internacionais. Foco no rigor operacional e na transição digital das organizações.',
+          heroCtaExperience: 'Explorar experiência',
+          heroCtaContact: 'Entrar em contacto',
+          linkedinLabel: 'LinkedIn',
+          githubLabel: 'GitHub',
+          executiveTitle: 'Visão executiva',
+          executivePoint1: 'Experiência recente em consultoria técnica e sistemas de informação.',
+          executivePoint2: 'Percurso internacional consolidado entre Portugal e França.',
+          executivePoint3: 'Liderança operacional, disciplina de execução e forte capacidade de adaptação.',
+          experienceEyebrow: 'Percurso profissional',
+          experienceTitle: 'Experiência profissional',
+          experienceIntro:
+            'Percurso desenvolvido em ambientes técnicos exigentes, com progressão para coordenação de equipas e experiência recente em consultoria de sistemas de informação.',
+          exp1Role: 'Consultor',
+          exp1Company: 'Wave Solutions',
+          exp1Text: 'Consultoria técnica em sistemas de informação, otimização de processos de negócio e fluxos de trabalho.',
+          exp2Role: 'Carpinteiro',
+          exp2Company: 'OFP Carpintaria',
+          exp2Text: 'Reintegração no mercado português com aplicação de forte competência técnica.',
+          exp3Role: 'Construtor de Estruturas Metálicas',
+          exp3Company: 'SLEICO, SAS, França',
+          exp3Text: 'Evolução para líder de equipa com coordenação de projetos técnicos complexos.',
+          exp4Role: 'Ajudante de Cozinha',
+          exp4Company: 'Hotel Chalet Mounier, França',
+          exp4Text: 'Adaptação a um novo ambiente profissional em contexto internacional e exigente.',
+          exp5Role: 'Gerente',
+          exp5Company: 'Cerâmica Laurindo Lopes',
+          exp5Text: 'Gestão de operações diárias e equipas.',
+          educationEyebrow: 'Educação',
+          educationTitle: 'Formação académica',
+          educationIntro:
+            'Licenciatura concluída em Engenharia de Sistemas Informáticos, com base sólida em software, sistemas, redes e dados.',
+          educationDegree: 'Licenciatura em Engenharia de Sistemas Informáticos',
+          educationSchool: 'Universidade Politécnica do Cávado e do Ave',
+          studyAreasLabel: 'Áreas de estudo',
+          skillsEyebrow: 'Perfil técnico',
+          skillsTitle: 'Competências-chave',
+          skillsIntro:
+            'Síntese das principais competências técnicas, linguísticas e interpessoais relevantes para funções em tecnologia e consultoria.',
+          technicalSkillsLabel: 'Competências técnicas',
+          skillsCard1Title: 'Programação',
+          skillsCard1Text: 'Linguagens e lógica aplicada',
+          skillsCard2Title: 'Sistemas e Redes',
+          skillsCard2Text: 'Infraestrutura, conectividade e operação',
+          skillsCard3Title: 'Bases de Dados',
+          skillsCard3Text: 'Modelação e consulta de dados',
+          skillsCard4Title: 'Ferramentas',
+          skillsCard4Text: 'Produtividade, colaboração e análise',
+          languagesLabel: 'Idiomas',
+          langPt: 'Português',
+          langPtLevel: 'Nativo',
+          langFr: 'Francês',
+          langEn: 'Inglês',
+          softSkillsLabel: 'Competências interpessoais',
+          soft1Title: 'Forte sentido de responsabilidade',
+          soft1Text: 'Compromisso com qualidade, fiabilidade e cumprimento de objetivos.',
+          soft2Title: 'Excelente organização e gestão do tempo',
+          soft2Text: 'Capacidade para estruturar prioridades e manter consistência na execução.',
+          soft3Title: 'Espírito de equipa e colaboração',
+          soft3Text: 'Facilidade em trabalhar com diferentes perfis e contribuir para resultados comuns.',
+          soft4Title: 'Motivação e orientação para resultados',
+          soft4Text: 'Foco em entrega, melhoria contínua e criação de valor concreto.',
+          soft5Title: 'Resiliência e capacidade de adaptação',
+          soft5Text: 'Boa resposta a contextos exigentes, mudança e novos desafios profissionais.',
+          soft6Title: 'Vontade de aprender e superar desafios',
+          soft6Text: 'Postura de evolução constante, com forte abertura à aprendizagem prática.',
+          contactEyebrow: 'Contacto',
+          contactTitle: 'Disponível para oportunidades em tecnologia e consultoria técnica',
+          contactIntro:
+            'Perfil orientado para organizações que valorizem rigor operacional, maturidade profissional e evolução tecnológica consistente.',
+          contactLocation: 'Barcelos, Portugal',
+          contactRole: 'Software Engineer & Data Enthusiast | Consultant',
+          contactAvailability: 'Disponível para sistemas de informação, software e transformação digital',
+          footerNote: 'Desenvolvido com dedicação e tecnologia.',
+        },
+        fr: {
+          brandTag: 'Profil Technologique',
+          navHome: 'Accueil',
+          navExperience: 'Expérience',
+          navEducation: 'Formation',
+          navSkills: 'Compétences',
+          navContact: 'Contact',
+          heroEyebrow: 'Profil Professionnel',
+          heroRole: 'Software Engineer & Data Enthusiast | Consultant',
+          heroSummary:
+            'Diplômé avec une expérience dans la mise en œuvre de systèmes d’information et de solutions de mobilité d’entreprise. Solide base technique construite sur plus d’une décennie dans des environnements internationaux. Accent mis sur la rigueur opérationnelle et la transition numérique des organisations.',
+          heroCtaExperience: 'Voir l’expérience',
+          heroCtaContact: 'Entrer en contact',
+          linkedinLabel: 'LinkedIn',
+          githubLabel: 'GitHub',
+          executiveTitle: 'Vue d’ensemble',
+          executivePoint1: 'Expérience récente en conseil technique et systèmes d’information.',
+          executivePoint2: 'Parcours international consolidé entre le Portugal et la France.',
+          executivePoint3: 'Leadership opérationnel, discipline d’exécution et forte capacité d’adaptation.',
+          experienceEyebrow: 'Parcours professionnel',
+          experienceTitle: 'Expérience professionnelle',
+          experienceIntro:
+            'Parcours développé dans des environnements techniques exigeants, avec progression vers la coordination d’équipes et une expérience récente en conseil en systèmes d’information.',
+          exp1Role: 'Consultant',
+          exp1Company: 'Wave Solutions',
+          exp1Text: 'Conseil technique en systèmes d’information, optimisation des processus métier et des flux de travail.',
+          exp2Role: 'Charpentier',
+          exp2Company: 'OFP Carpintaria',
+          exp2Text: 'Réintégration sur le marché portugais avec application d’une forte compétence technique.',
+          exp3Role: 'Constructeur de Structures Métalliques',
+          exp3Company: 'SLEICO, SAS, France',
+          exp3Text: 'Évolution vers un poste de chef d’équipe avec coordination de projets techniques complexes.',
+          exp4Role: 'Aide de Cuisine',
+          exp4Company: 'Hotel Chalet Mounier, France',
+          exp4Text: 'Adaptation à un nouvel environnement professionnel dans un contexte international exigeant.',
+          exp5Role: 'Gérant',
+          exp5Company: 'Cerâmica Laurindo Lopes',
+          exp5Text: 'Gestion des opérations quotidiennes et des équipes.',
+          educationEyebrow: 'Formation',
+          educationTitle: 'Formation académique',
+          educationIntro:
+            'Licence en ingénierie des systèmes informatiques, avec une base solide en logiciels, systèmes, réseaux et données.',
+          educationDegree: 'Licence en Ingénierie des Systèmes Informatiques',
+          educationSchool: 'Université Polytechnique du Cávado et de l’Ave',
+          studyAreasLabel: 'Domaines d’étude',
+          skillsEyebrow: 'Profil technique',
+          skillsTitle: 'Compétences clés',
+          skillsIntro:
+            'Synthèse des principales compétences techniques, linguistiques et interpersonnelles pertinentes pour des fonctions en technologie et en conseil.',
+          technicalSkillsLabel: 'Compétences techniques',
+          skillsCard1Title: 'Programmation',
+          skillsCard1Text: 'Langages et logique appliquée',
+          skillsCard2Title: 'Systèmes et Réseaux',
+          skillsCard2Text: 'Infrastructure, connectivité et opérations',
+          skillsCard3Title: 'Bases de Données',
+          skillsCard3Text: 'Modélisation et interrogation des données',
+          skillsCard4Title: 'Outils',
+          skillsCard4Text: 'Productivité, collaboration et analyse',
+          languagesLabel: 'Langues',
+          langPt: 'Portugais',
+          langPtLevel: 'Natif',
+          langFr: 'Français',
+          langEn: 'Anglais',
+          softSkillsLabel: 'Compétences interpersonnelles',
+          soft1Title: 'Fort sens des responsabilités',
+          soft1Text: 'Engagement envers la qualité, la fiabilité et l’atteinte des objectifs.',
+          soft2Title: 'Excellente organisation et gestion du temps',
+          soft2Text: 'Capacité à structurer les priorités et à maintenir une exécution cohérente.',
+          soft3Title: 'Esprit d’équipe et collaboration',
+          soft3Text: 'Aisance à travailler avec des profils variés et à contribuer à des résultats communs.',
+          soft4Title: 'Motivation et orientation résultats',
+          soft4Text: 'Focalisation sur la livraison, l’amélioration continue et la création de valeur.',
+          soft5Title: 'Résilience et capacité d’adaptation',
+          soft5Text: 'Bonne réponse aux contextes exigeants, au changement et aux nouveaux défis professionnels.',
+          soft6Title: 'Volonté d’apprendre et de relever des défis',
+          soft6Text: 'Posture d’évolution continue, avec une forte ouverture à l’apprentissage pratique.',
+          contactEyebrow: 'Contact',
+          contactTitle: 'Disponible pour des opportunités en technologie et conseil technique',
+          contactIntro:
+            'Profil orienté vers des organisations qui valorisent la rigueur opérationnelle, la maturité professionnelle et une évolution technologique cohérente.',
+          contactLocation: 'Barcelos, Portugal',
+          contactRole: 'Software Engineer & Data Enthusiast | Consultant',
+          contactAvailability: 'Disponible pour les systèmes d’information, le logiciel et la transformation numérique',
+          footerNote: 'Développé avec engagement et technologie.',
+        },
+        en: {
+          brandTag: 'Technology Profile',
+          navHome: 'Home',
+          navExperience: 'Experience',
+          navEducation: 'Education',
+          navSkills: 'Skills',
+          navContact: 'Contact',
+          heroEyebrow: 'Professional Profile',
+          heroRole: 'Software Engineer & Data Enthusiast | Consultant',
+          heroSummary:
+            'Graduate with experience in implementing information systems and business mobility solutions. Strong technical background built over more than a decade in international environments. Focused on operational discipline and the digital transition of organizations.',
+          heroCtaExperience: 'Explore experience',
+          heroCtaContact: 'Get in touch',
+          linkedinLabel: 'LinkedIn',
+          githubLabel: 'GitHub',
+          executiveTitle: 'Executive Overview',
+          executivePoint1: 'Recent experience in technical consulting and information systems.',
+          executivePoint2: 'Solid international background across Portugal and France.',
+          executivePoint3: 'Operational leadership, execution discipline, and strong adaptability.',
+          experienceEyebrow: 'Career path',
+          experienceTitle: 'Professional experience',
+          experienceIntro:
+            'Career built in demanding technical environments, with progression into team coordination and recent experience in information systems consulting.',
+          exp1Role: 'Consultant',
+          exp1Company: 'Wave Solutions',
+          exp1Text: 'Technical consulting in information systems, business process optimization, and workflow improvement.',
+          exp2Role: 'Carpenter',
+          exp2Company: 'OFP Carpintaria',
+          exp2Text: 'Successful reintegration into the Portuguese market with strong technical capability.',
+          exp3Role: 'Metal Structure Builder',
+          exp3Company: 'SLEICO, SAS, France',
+          exp3Text: 'Progressed into team leadership while coordinating complex technical projects.',
+          exp4Role: 'Kitchen Assistant',
+          exp4Company: 'Hotel Chalet Mounier, France',
+          exp4Text: 'Adapted to a demanding international professional environment.',
+          exp5Role: 'Manager',
+          exp5Company: 'Cerâmica Laurindo Lopes',
+          exp5Text: 'Managed daily operations and teams.',
+          educationEyebrow: 'Education',
+          educationTitle: 'Academic background',
+          educationIntro:
+            'Bachelor’s degree in Computer Systems Engineering, with a strong foundation in software, systems, networks, and data.',
+          educationDegree: 'Bachelor’s Degree in Computer Systems Engineering',
+          educationSchool: 'Polytechnic University of Cávado and Ave',
+          studyAreasLabel: 'Study areas',
+          skillsEyebrow: 'Technical Profile',
+          skillsTitle: 'Key capabilities',
+          skillsIntro:
+            'Overview of the main technical, language, and interpersonal capabilities relevant to technology and consulting roles.',
+          technicalSkillsLabel: 'Technical skills',
+          skillsCard1Title: 'Programming',
+          skillsCard1Text: 'Languages and applied logic',
+          skillsCard2Title: 'Systems & Networks',
+          skillsCard2Text: 'Infrastructure, connectivity, and operations',
+          skillsCard3Title: 'Databases',
+          skillsCard3Text: 'Data modeling and querying',
+          skillsCard4Title: 'Tools',
+          skillsCard4Text: 'Productivity, collaboration, and analysis',
+          languagesLabel: 'Languages',
+          langPt: 'Portuguese',
+          langPtLevel: 'Native',
+          langFr: 'French',
+          langEn: 'English',
+          softSkillsLabel: 'Interpersonal skills',
+          soft1Title: 'Strong sense of responsibility',
+          soft1Text: 'Commitment to quality, reliability, and achieving objectives.',
+          soft2Title: 'Excellent organization and time management',
+          soft2Text: 'Ability to structure priorities and maintain consistent execution.',
+          soft3Title: 'Team spirit and collaboration',
+          soft3Text: 'Comfortable working with different profiles and contributing to shared outcomes.',
+          soft4Title: 'Motivation and results orientation',
+          soft4Text: 'Focused on delivery, continuous improvement, and practical value creation.',
+          soft5Title: 'Resilience and adaptability',
+          soft5Text: 'Strong response to demanding contexts, change, and new professional challenges.',
+          soft6Title: 'Willingness to learn and overcome challenges',
+          soft6Text: 'Continuous growth mindset with strong openness to practical learning.',
+          contactEyebrow: 'Contact',
+          contactTitle: 'Available for opportunities in technology and technical consulting',
+          contactIntro:
+            'Profile suited to organizations that value operational rigor, professional maturity, and consistent technological growth.',
+          contactLocation: 'Barcelos, Portugal',
+          contactRole: 'Software Engineer & Data Enthusiast | Consultant',
+          contactAvailability: 'Available for information systems, software, and digital transformation roles',
+          footerNote: 'Built with dedication and technology.',
+        },
+      };
+
+      const typewriterTarget = document.getElementById('typewriter');
+      let typewriterText = translations.pt.heroRole;
+      let typeIndex = 0;
+
+      function runTypewriter() {
+        if (typeIndex <= typewriterText.length) {
+          typewriterTarget.textContent = typewriterText.slice(0, typeIndex);
+          typeIndex += 1;
+          setTimeout(runTypewriter, 42);
+        }
+      }
+
+      function applyLanguage(lang) {
+        const selected = translations[lang] || translations.pt;
+        document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
+
+        document.querySelectorAll('[data-i18n]').forEach((element) => {
+          const key = element.getAttribute('data-i18n');
+          if (selected[key]) {
+            element.textContent = selected[key];
+          }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.lang === lang);
+        });
+
+        typewriterText = selected.heroRole;
+        typeIndex = 0;
+        typewriterTarget.textContent = '';
+        runTypewriter();
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      window.addEventListener('mousemove', (event) => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+        mouse.active = true;
+      });
+      window.addEventListener('mouseleave', () => {
+        mouse.active = false;
+      });
+
+      document.querySelectorAll('.lang-btn').forEach((button) => {
+        button.addEventListener('click', () => applyLanguage(button.dataset.lang));
+      });
+
+      resizeCanvas();
+      animate();
+      applyLanguage('pt');
+    </script>
+  </body>
+</html>

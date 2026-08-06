@@ -166,6 +166,9 @@
       }
 
       .lang-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         border: 0;
         border-radius: 999px;
         min-width: 46px;
@@ -178,6 +181,14 @@
         font-weight: 700;
         line-height: 1;
         transition: 180ms ease;
+      }
+
+      .lang-btn img {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        object-fit: cover;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
       }
 
       .lang-btn:hover,
@@ -707,9 +718,9 @@
       }
 
       .skill-tags span {
-        display: inline-flex;
+        display: grid;
+        grid-template-columns: 18px 1fr 18px;
         align-items: center;
-        gap: 8px;
         padding: 9px 12px;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.05);
@@ -718,6 +729,7 @@
         font-size: 0.82rem;
         min-height: 38px;
         white-space: nowrap;
+        text-align: center;
       }
 
       .soft-grid {
@@ -751,6 +763,7 @@
       .skill-tags i {
         color: var(--cyan);
         font-size: 0.92rem;
+        justify-self: start;
       }
 
       .skill-tags .token-mark {
@@ -777,6 +790,14 @@
       .language-icon {
         font-size: 1.45rem;
         line-height: 1;
+        overflow: hidden;
+      }
+
+      .language-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 14px;
       }
 
       .lang-pt {
@@ -1013,9 +1034,9 @@
             <a href="#contact" data-i18n="navContact">Contacto</a>
           </nav>
           <div class="lang-switcher" aria-label="Language switcher">
-            <button class="lang-btn is-active" type="button" data-lang="pt" aria-label="Português">🇵🇹</button>
-            <button class="lang-btn" type="button" data-lang="fr" aria-label="Français">🇫🇷</button>
-            <button class="lang-btn" type="button" data-lang="en" aria-label="English">🇬🇧</button>
+            <button class="lang-btn is-active" type="button" data-lang="pt" aria-label="Português"><img src="./public/assets/flags/flag-pt.png" alt="Bandeira de Portugal" /></button>
+            <button class="lang-btn" type="button" data-lang="fr" aria-label="Français"><img src="./public/assets/flags/flag-fr.png" alt="Drapeau de la France" /></button>
+            <button class="lang-btn" type="button" data-lang="en" aria-label="English"><img src="./public/assets/flags/flag-en.png" alt="Flag of the United Kingdom" /></button>
           </div>
         </div>
       </div>
@@ -1305,7 +1326,7 @@
               <div class="language-list">
                 <div class="language-card glass">
                   <div class="language-card-header">
-                    <div class="language-icon lang-pt">🇵🇹</div>
+                    <div class="language-icon lang-pt"><img src="./public/assets/flags/flag-pt.png" alt="Bandeira de Portugal" /></div>
                     <div class="language-meta">
                       <h3 data-i18n="langPt">Português</h3>
                       <small data-i18n="langPtLevel">Nativo</small>
@@ -1315,7 +1336,7 @@
 
                 <div class="language-card glass">
                   <div class="language-card-header">
-                    <div class="language-icon lang-fr">🇫🇷</div>
+                    <div class="language-icon lang-fr"><img src="./public/assets/flags/flag-fr.png" alt="Drapeau de la France" /></div>
                     <div class="language-meta">
                       <h3 data-i18n="langFr">Francês</h3>
                       <small>C1</small>
@@ -1325,7 +1346,7 @@
 
                 <div class="language-card glass">
                   <div class="language-card-header">
-                    <div class="language-icon lang-en">🇬🇧</div>
+                    <div class="language-icon lang-en"><img src="./public/assets/flags/flag-en.png" alt="Flag of the United Kingdom" /></div>
                     <div class="language-meta">
                       <h3 data-i18n="langEn">Inglês</h3>
                       <small>B1</small>

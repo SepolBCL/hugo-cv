@@ -664,6 +664,31 @@
         gap: 10px;
       }
 
+      .credential-inline {
+        margin-top: 18px;
+      }
+
+      .credential-inline .credential-row {
+        align-items: center;
+      }
+
+      .credential-inline .credential-meta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px 18px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .credential-inline .credential-meta p {
+        margin: 6px 0 0;
+      }
+
+      .credential-inline .credential-chips {
+        margin-top: 0;
+        justify-content: flex-end;
+      }
+
       .muted-line {
         color: var(--muted);
         line-height: 1.75;
@@ -1149,23 +1174,6 @@
           </div>
         </div>
 
-        <article class="education-card glass">
-          <span class="micro-label" data-i18n="certificationLabel">Certificação profissional</span>
-          <div class="credential-row">
-            <div class="credential-icon">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <div class="credential-meta">
-              <h3 data-i18n="certificationTitle">Técnico Certificado PHC GO Business Partner</h3>
-              <p class="muted-line" data-i18n="certificationIssuer">Emitido por Cegid em março de 2026, no âmbito da atividade desenvolvida na Wave Solutions SI.</p>
-              <div class="credential-chips">
-                <span class="micro-chip" data-i18n="certificationOrg">Wave Solutions SI</span>
-                <span class="micro-chip" data-i18n="certificationDate">Março 2026</span>
-                <span class="micro-chip">PHC GO</span>
-              </div>
-            </div>
-          </div>
-        </article>
       </section>
 
       <section class="section reveal" id="experience">
@@ -1385,6 +1393,26 @@
                   <span><i class="devicon-visualstudio-plain"></i> Visual Studio</span>
                 </div>
               </div>
+              </div>
+            </article>
+
+            <article class="section-card glass credential-inline">
+              <span class="micro-label" data-i18n="certificationLabel">Certificação profissional</span>
+              <div class="credential-row">
+                <div class="credential-icon">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="credential-meta">
+                  <div>
+                    <h3 data-i18n="certificationTitle">Técnico Certificado PHC GO Business Partner</h3>
+                    <p class="muted-line" data-i18n="certificationIssuer">Emitido por Cegid em março de 2026, no âmbito da atividade desenvolvida na Wave Solutions SI.</p>
+                  </div>
+                  <div class="credential-chips">
+                    <span class="micro-chip" data-i18n="certificationOrg">Wave Solutions SI</span>
+                    <span class="micro-chip" data-i18n="certificationDate">Março 2026</span>
+                    <span class="micro-chip">PHC GO</span>
+                  </div>
+                </div>
               </div>
             </article>
 

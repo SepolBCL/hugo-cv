@@ -152,8 +152,11 @@
       .topbar-actions {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         gap: 12px;
         flex-wrap: wrap;
+        flex: 1;
+        min-width: 0;
       }
 
       .lang-switcher {
@@ -164,6 +167,8 @@
         border-radius: 999px;
         border: 1px solid rgba(148, 163, 184, 0.12);
         background: rgba(255, 255, 255, 0.04);
+        margin-left: auto;
+        flex: 0 0 auto;
       }
 
       .lang-btn {
@@ -1167,9 +1172,25 @@
       }
 
       @media (max-width: 760px) {
+        .topbar-inner {
+          align-items: stretch;
+        }
+
+        .topbar-actions {
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+          justify-content: flex-start;
+        }
+
         .nav {
           grid-template-columns: repeat(2, minmax(0, 1fr));
           width: 100%;
+        }
+
+        .lang-switcher {
+          margin-left: 0;
+          align-self: flex-end;
         }
 
         .shell {
@@ -1312,6 +1333,19 @@
           </div>
 
           <div class="hero-main-bottom">
+          <div class="hero-actions">
+            <a class="cta primary" href="#experience"><i class="fa-solid fa-briefcase"></i> <span data-i18n="heroCtaExperience">Explorar experiência</span></a>
+            <a class="cta secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="heroCtaContact">Entrar em contacto</span></a>
+          </div>
+
+          <div class="social-links">
+            <a class="social-link" href="https://www.linkedin.com/in/hugolopesbcl/" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-linkedin-in"></i> <span data-i18n="linkedinLabel">LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://github.com/SepolBCL" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-github"></i> <span data-i18n="githubLabel">GitHub</span>
+            </a>
+          </div>
           <div class="hobbies-panel glass">
             <span class="micro-label" data-i18n="hobbiesLabel">Interesses pessoais</span>
             <div class="hobbies-list">
@@ -1331,19 +1365,6 @@
                 <span></span>
               </div>
             </div>
-          </div>
-          <div class="hero-actions">
-            <a class="cta primary" href="#experience"><i class="fa-solid fa-briefcase"></i> <span data-i18n="heroCtaExperience">Explorar experiência</span></a>
-            <a class="cta secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="heroCtaContact">Entrar em contacto</span></a>
-          </div>
-
-          <div class="social-links">
-            <a class="social-link" href="https://www.linkedin.com/in/hugolopesbcl/" target="_blank" rel="noreferrer">
-              <i class="fa-brands fa-linkedin-in"></i> <span data-i18n="linkedinLabel">LinkedIn</span>
-            </a>
-            <a class="social-link" href="https://github.com/SepolBCL" target="_blank" rel="noreferrer">
-              <i class="fa-brands fa-github"></i> <span data-i18n="githubLabel">GitHub</span>
-            </a>
           </div>
           </div>
         </div>

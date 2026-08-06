@@ -603,6 +603,10 @@
         grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
       }
 
+      .education-grid + .education-card {
+        margin-top: 20px;
+      }
+
       .education-card,
       .section-card,
       .contact-card {
@@ -618,6 +622,46 @@
 
       .education-head .subheading {
         font-size: 1.32rem;
+      }
+
+      .credential-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .credential-icon {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #dffcff;
+        background: rgba(103, 232, 249, 0.08);
+        border: 1px solid rgba(103, 232, 249, 0.16);
+        box-shadow: 0 0 24px rgba(34, 211, 238, 0.08);
+      }
+
+      .credential-icon i {
+        font-size: 1.18rem;
+      }
+
+      .credential-meta h3 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .credential-meta p {
+        margin: 8px 0 0;
+      }
+
+      .credential-chips {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
       .muted-line {
@@ -639,9 +683,14 @@
       }
 
       .micro-chip {
-        padding: 10px 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 16px;
         color: #e2e8f0;
         font-size: 0.86rem;
+        text-align: center;
       }
 
       .skills-layout {
@@ -1099,6 +1148,24 @@
             </ul>
           </div>
         </div>
+
+        <article class="education-card glass">
+          <span class="micro-label" data-i18n="certificationLabel">Certificação profissional</span>
+          <div class="credential-row">
+            <div class="credential-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="credential-meta">
+              <h3 data-i18n="certificationTitle">Técnico Certificado PHC GO Business Partner</h3>
+              <p class="muted-line" data-i18n="certificationIssuer">Emitido por Cegid em março de 2026, no âmbito da atividade desenvolvida na Wave Solutions SI.</p>
+              <div class="credential-chips">
+                <span class="micro-chip" data-i18n="certificationOrg">Wave Solutions SI</span>
+                <span class="micro-chip" data-i18n="certificationDate">Março 2026</span>
+                <span class="micro-chip">PHC GO</span>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section class="section reveal" id="experience">
@@ -1600,6 +1667,11 @@
           educationDegree: 'Licenciatura em Engenharia de Sistemas Informáticos',
           educationSchool: 'Universidade Politécnica do Cávado e do Ave',
           studyAreasLabel: 'Áreas de estudo',
+          certificationLabel: 'Certificação profissional',
+          certificationTitle: 'Técnico Certificado PHC GO Business Partner',
+          certificationIssuer: 'Emitido por Cegid em março de 2026, no âmbito da atividade desenvolvida na Wave Solutions SI.',
+          certificationOrg: 'Wave Solutions SI',
+          certificationDate: 'Março 2026',
           skillsEyebrow: 'Perfil técnico',
           skillsTitle: 'Competências-chave',
           skillsIntro:
@@ -1685,6 +1757,11 @@
           educationDegree: 'Licence en Ingénierie des Systèmes Informatiques',
           educationSchool: 'Université Polytechnique du Cávado et de l’Ave',
           studyAreasLabel: 'Domaines d’étude',
+          certificationLabel: 'Certification professionnelle',
+          certificationTitle: 'Technicien Certifié PHC GO Business Partner',
+          certificationIssuer: 'Délivré par Cegid en mars 2026, dans le cadre de l’activité exercée chez Wave Solutions SI.',
+          certificationOrg: 'Wave Solutions SI',
+          certificationDate: 'Mars 2026',
           skillsEyebrow: 'Profil technique',
           skillsTitle: 'Compétences clés',
           skillsIntro:
@@ -1770,6 +1847,11 @@
           educationDegree: 'Bachelor’s Degree in Computer Systems Engineering',
           educationSchool: 'Polytechnic University of Cávado and Ave',
           studyAreasLabel: 'Study areas',
+          certificationLabel: 'Professional certification',
+          certificationTitle: 'Certified PHC GO Business Partner Technician',
+          certificationIssuer: 'Issued by Cegid in March 2026 as part of the professional activity carried out at Wave Solutions SI.',
+          certificationOrg: 'Wave Solutions SI',
+          certificationDate: 'March 2026',
           skillsEyebrow: 'Technical Profile',
           skillsTitle: 'Key capabilities',
           skillsIntro:

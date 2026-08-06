@@ -224,9 +224,27 @@
         min-height: calc(100vh - var(--nav-height));
         display: grid;
         grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-        align-items: center;
+        align-items: stretch;
         gap: 44px;
         padding: 52px 0 72px;
+      }
+
+      .hero-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100%;
+      }
+
+      .hero-main-top {
+        display: grid;
+        align-content: start;
+      }
+
+      .hero-main-bottom {
+        display: grid;
+        gap: 16px;
+        margin-top: 26px;
       }
 
       .eyebrow {
@@ -411,7 +429,9 @@
 
       .hero-side {
         display: grid;
+        align-content: space-between;
         gap: 22px;
+        min-height: 100%;
       }
 
       .portrait-panel {
@@ -759,12 +779,17 @@
 
       .chip-grid {
         margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 12px;
+        align-items: stretch;
       }
 
       .micro-chip {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
         min-height: 42px;
         padding: 10px 16px;
         color: #e2e8f0;
@@ -1185,7 +1210,8 @@
 
     <main class="shell">
       <section class="hero reveal" id="hero">
-        <div>
+        <div class="hero-main">
+          <div class="hero-main-top">
           <h2 class="hero-title">HUGO LOPES</h2>
           <div class="hero-role">
             <span id="typewriter"></span>
@@ -1233,6 +1259,9 @@
             </p>
           </div>
 
+          </div>
+
+          <div class="hero-main-bottom">
           <div class="hero-actions">
             <a class="cta primary" href="#experience"><i class="fa-solid fa-briefcase"></i> <span data-i18n="heroCtaExperience">Explorar experiência</span></a>
             <a class="cta secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="heroCtaContact">Entrar em contacto</span></a>
@@ -1245,6 +1274,7 @@
             <a class="social-link" href="https://github.com/SepolBCL" target="_blank" rel="noreferrer">
               <i class="fa-brands fa-github"></i> <span data-i18n="githubLabel">GitHub</span>
             </a>
+          </div>
           </div>
         </div>
 

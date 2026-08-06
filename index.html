@@ -142,10 +142,11 @@
       }
 
       .nav {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         align-items: center;
         gap: 10px;
-        flex-wrap: wrap;
+        width: min(100%, 760px);
       }
 
       .topbar-actions {
@@ -198,12 +199,18 @@
       }
 
       .nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         padding: 10px 16px;
+        min-height: 44px;
+        width: 100%;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.04);
         border: 1px solid rgba(148, 163, 184, 0.12);
         color: var(--muted);
         font-size: 0.92rem;
+        text-align: center;
         transition: 180ms ease;
       }
 
@@ -245,6 +252,40 @@
         display: grid;
         gap: 16px;
         margin-top: 26px;
+      }
+
+      .hobbies-panel {
+        padding: 18px 20px;
+        border-radius: var(--radius-xl);
+      }
+
+      .hobbies-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .hobby-chip {
+        display: grid;
+        grid-template-columns: 20px 1fr 20px;
+        align-items: center;
+        min-height: 52px;
+        padding: 12px 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .hobby-chip i {
+        justify-self: start;
+        color: var(--cyan);
+      }
+
+      .hobby-chip span {
+        justify-self: center;
       }
 
       .eyebrow {
@@ -1119,9 +1160,18 @@
         .hero-tags {
           grid-template-columns: 1fr;
         }
+
+        .hobbies-list {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 760px) {
+        .nav {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          width: 100%;
+        }
+
         .shell {
           width: min(100% - 20px, 1380px);
         }
@@ -1262,6 +1312,26 @@
           </div>
 
           <div class="hero-main-bottom">
+          <div class="hobbies-panel glass">
+            <span class="micro-label" data-i18n="hobbiesLabel">Interesses pessoais</span>
+            <div class="hobbies-list">
+              <div class="hobby-chip">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span data-i18n="hobbyRide">Andar de moto</span>
+                <span></span>
+              </div>
+              <div class="hobby-chip">
+                <i class="fa-solid fa-music"></i>
+                <span data-i18n="hobbyMusic">Ouvir música</span>
+                <span></span>
+              </div>
+              <div class="hobby-chip">
+                <i class="fa-solid fa-guitar"></i>
+                <span data-i18n="hobbyGuitar">Tocar guitarra</span>
+                <span></span>
+              </div>
+            </div>
+          </div>
           <div class="hero-actions">
             <a class="cta primary" href="#experience"><i class="fa-solid fa-briefcase"></i> <span data-i18n="heroCtaExperience">Explorar experiência</span></a>
             <a class="cta secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="heroCtaContact">Entrar em contacto</span></a>
@@ -1856,6 +1926,10 @@
           soft5Text: 'Boa resposta a contextos exigentes, mudança e novos desafios profissionais.',
           soft6Title: 'Vontade de aprender e superar desafios',
           soft6Text: 'Postura de evolução constante, com forte abertura à aprendizagem prática.',
+          hobbiesLabel: 'Interesses pessoais',
+          hobbyRide: 'Andar de moto',
+          hobbyMusic: 'Ouvir música',
+          hobbyGuitar: 'Tocar guitarra',
           contactEyebrow: 'Contacto',
           contactTitle: 'Disponível para oportunidades em tecnologia e consultoria técnica',
           contactIntro:
@@ -1946,6 +2020,10 @@
           soft5Text: 'Bonne réponse aux contextes exigeants, au changement et aux nouveaux défis professionnels.',
           soft6Title: 'Volonté d’apprendre et de relever des défis',
           soft6Text: 'Posture d’évolution continue, avec une forte ouverture à l’apprentissage pratique.',
+          hobbiesLabel: 'Centres d’intérêt',
+          hobbyRide: 'Moto',
+          hobbyMusic: 'Écouter de la musique',
+          hobbyGuitar: 'Jouer de la guitare',
           contactEyebrow: 'Contact',
           contactTitle: 'Disponible pour des opportunités en technologie et conseil technique',
           contactIntro:
@@ -2036,6 +2114,10 @@
           soft5Text: 'Strong response to demanding contexts, change, and new professional challenges.',
           soft6Title: 'Willingness to learn and overcome challenges',
           soft6Text: 'Continuous growth mindset with strong openness to practical learning.',
+          hobbiesLabel: 'Personal interests',
+          hobbyRide: 'Motorcycling',
+          hobbyMusic: 'Listening to music',
+          hobbyGuitar: 'Playing guitar',
           contactEyebrow: 'Contact',
           contactTitle: 'Available for opportunities in technology and technical consulting',
           contactIntro:

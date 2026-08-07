@@ -2203,5 +2203,42 @@
       animate();
       applyLanguage('pt');
     </script>
+    <script type="module">
+      import { inject, track } from '@vercel/analytics';
+
+      inject();
+
+      const getInteraction = (element) => {
+        const languageButton = element.closest('.lang-btn');
+        if (languageButton) {
+          return {
+            action: 'change_language',
+            detail: languageButton.dataset.lang || 'unknown',
+          };
+        }
+
+        const link = element.closest('a');
+        if (!link) return null;
+
+        const href = link.getAttribute('href') || '';
+        const location = link.closest('#contact') ? 'contact' : 'hero';
+
+        if (href.includes('linkedin.com')) return { action: 'open_linkedin', detail: location };
+        if (href.includes('github.com')) return { action: 'open_github', detail: location };
+        if (href.startsWith('mailto:')) return { action: 'email_contact', detail: location };
+        if (href.startsWith('tel:')) return { action: 'phone_contact', detail: location };
+        if (href === '#experience') return { action: 'explore_experience', detail: 'hero' };
+        if (href === '#contact') return { action: 'open_contact_section', detail: 'hero' };
+
+        return null;
+      };
+
+      document.addEventListener('click', (event) => {
+        const interaction = getInteraction(event.target);
+        if (interaction) {
+          track('CV Interaction', interaction);
+        }
+      });
+    </script>
   </body>
 </html>
